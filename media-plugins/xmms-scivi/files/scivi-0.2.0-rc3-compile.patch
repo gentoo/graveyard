@@ -1,0 +1,24 @@
+diff --git a/src/glstuff.c b/src/glstuff.c
+index 4b6c0fd..cb4e2ac 100644
+--- a/src/glstuff.c
++++ b/src/glstuff.c
+@@ -120,15 +120,15 @@ static int load_gl_funcs(const int dontload)
+ 
+ #define GET(_fatal_, _n_)\
+ 	if (!dontload){\
+-		((void*)(sc_##_n_)) = getaddr(#_n_); \
+-		if ((sc_##_n_) == NULL) { \
+-			((void*)(sc_##_n_)) = stub_func; \
++		sc_##_n_ = getaddr(#_n_); \
++		if (sc_##_n_ == NULL) { \
++			sc_##_n_ = stub_func; \
+ 			eprintf("failed to get address of '%s'\n", #_n_);\
+ 			if ((_fatal_)) failed++;\
+ 		}\
+ 		/* eprintf("func %s @ %p\n", #_n_, sc_##_n_);*/ \
+ 	} else \
+-		((void*)(sc_##_n_)) = stub_func;
++		sc_##_n_ = stub_func;
+ 
+ 	getaddr = sc_glXGetProcAddress ?
+ 		((void*)sc_glXGetProcAddress) :
