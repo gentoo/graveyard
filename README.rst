@@ -13,4 +13,4 @@ proxy-maint@gentoo.org.
 
 For now I will oversee this overlay, but others are welcome to step up.
 
-Ben de Groot <yngwin@gentoo.org>
+William Hubbs <williamh@gentoo.org>
